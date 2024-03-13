@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="todo">
+            <h1>My Todos</h1>
+        </div>
+        <div class="inputbar">
+            <input id="input">
+            <button onclick="saveItem()">Save</button>
+        </div>
+        <div class="ullist">
+            <ul id="list">
+                <li>
+                    <span>Hello</span>
+                    <div class="btn">
+                        <button onclick="editItem(this)">Edit</button>
+                        <button onclick="deleteItem(event)">Remove</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="popup-overlay" id="popupOverlay">
+            <div class="popup-container">
+                <h1>EDIT INFO</h1>
+                <input type="text" class="popup-input" id="editTodo" placeholder="Edit your todo">
+                <div class="popup-buttons">
+                    <button onclick="saveEdit()">Save</button>
+                    <button onclick="closePopup()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var ul = document.getElementById("list");
+            var input = document.getElementById("input");
+
+            function saveItem() {
+                if (input.value.trim() !== "") {
+                    var listItem = document.createElement("li");
+                    listItem.innerHTML = "<span>" + input.value + "</span>" +
+                        "<div class='btn'>" +
+                        "<button onclick='editItem(this)'>Edit</button>" +
+                        "<button onclick='deleteItem(event)'>Remove</button>" +
+                        "</div>";
+                    ul.appendChild(listItem);
+                    input.value = "";
+                } else {
+                    alert("Please enter a valid todo.");
+                }
+            }
+
+            function deleteItem(event) {
+                event.target.parentElement.parentElement.remove();
+            }
+
+            function editItem(button) {
+                var listItem = button.parentElement.parentElement;
+                var newText = listItem.querySelector("span").textContent.trim();
+                document.getElementById("editTodo").value = newText;
+                listItem.classList.add("editing");
+                document.getElementById("popupOverlay").style.display = "block";
+            }
+
+            function closePopup() {
+                document.getElementById("popupOverlay").style.display = "none";
+            }
+
+            function saveEdit() {
+                var newText = document.getElementById("editTodo").value;
+                if (newText.trim() !== "") {
+                    var listItem = ul.querySelector("li.editing");
+                    if (listItem) {
+                        listItem.querySelector("span").textContent = newText;
+                        listItem.classList.remove("editing");
+                        closePopup();
+                    }
+                } else {
+                    alert("Please enter a valid todo.");
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

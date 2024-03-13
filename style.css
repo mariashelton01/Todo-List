@@ -1,0 +1,111 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+.header {
+  align-content: center;
+  background-color: aliceblue;
+  padding: 2rem 2.5rem 3rem 0;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+}
+.inputbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 0 0 2rem;
+}
+.inputbar input {
+  width: 19rem;
+  height: 2rem;
+}
+.inputbar button {
+  color: white;
+  border: none;
+  border-radius: 2px;
+  height: 2.3rem;
+  width: 5rem;
+  font-size: 16px;
+  background-color: aquamarine;
+}
+.ullist {
+  display: flex;
+  align-items: center;
+}
+.ullist li {
+  display: flex;
+  padding: 1rem 0 0 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 9rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 7px;
+}
+.ullist li .btn {
+  display: flex;
+  gap: 1rem;
+}
+.ullist li button {
+  background-color: red;
+  color: #fff;
+  border: none;
+  height: 2rem;
+  width: 4rem;
+  font-size: 11px;
+  font-weight: 700;
+}
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 30rem;
+  height: 12rem;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.popup-container h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.popup-input {
+  width: 100%;
+  height: 2.1rem;
+  margin-bottom: 10px;
+}
+
+.popup-buttons {
+  text-align: center;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.popup-buttons button {
+  height: 2rem;
+  width: 6rem;
+  font-weight: 700;
+  border: none;
+  background-color: red;
+  color: #fff;
+}
